@@ -1,0 +1,33 @@
+<!-- <p>
+  verification works!
+</p>
+
+<div class="row">
+  <div class="col-sm" *ngFor="let category of categories" style="padding:15px;">
+    <div class="card category-data" (click)="StoreCategory(category)" matStepperNext style="width: 13rem;">
+      <div class="card-body">
+        <h2 class="card-title">{{category?.name}}</h2>
+        <!-- <h6 class="card-subtitle mb-2 text-muted">{{category.description}}</h6> -->
+        <!-- <mat-icon class="cat-icon" (click)="StoreCategory(category)">{{category?.imageUrl}}</mat-icon>
+        <hr>
+        <button mat-button routerLink="/category/{{category.name}}">Select</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="row">
+<div class="col-sm" *ngFor="let category of categories" style="padding:5px;flex-grow:0 !important;float:left;">
+  <div class="card category-data" [routerLink]="['/category', category.name]" (click)="StoreCollection(category)" style="width: 13rem;">
+    <div class="card-body">
+      <!-- <h2 class="card-title">{{category?.name}}</h2> -->
+      <!-- <h6 class="card-subtitle mb-2 text-muted">{{category.description}}</h6> -->
+      <!-- <img style="vertical-align: middle;" aria-hidden [src]="category?.image || imageNotFoundUrl" height="150" /> -->
+      <!-- <mat-icon class="cat-icon" (click)="StoreCategory(category)">{{category?.imageUrl}}</mat-icon> -->
+      <mat-icon class="cat-icon" (click)="StoreCategory(category)">{{category?.imageUrl}}</mat-icon>
+      <hr>
+      <a (click)="StoreCollection(category)" [routerLink]="['/category', category.name]" matTooltip="{{category?.name}}" class="card-title">{{category?.name}}</a>
+      <!-- <p matTooltip="{{collection?.name}}">{{collection?.owner | excerpt:20 | titleCase}}</p> -->
+    </div>
+  </div>
+</div>
+</div>

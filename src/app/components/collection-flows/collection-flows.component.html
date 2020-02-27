@@ -1,0 +1,49 @@
+<!-- <h2>Form Info {{info}}</h2> -->
+<!-- <pre>
+  {{collectionService.collectionForm | json}}
+</pre> -->
+<!-- <app-collections-form [dataObject]="data" [count]="counter"></app-collections-form> -->
+<!-- <pre>
+{{collectionService.collectionForm.collectionInputSpecs | json}}
+</pre> -->
+<h3>Data</h3>
+<hr>
+<!-- <pre>
+  {{data | json}}
+</pre> -->
+<hr>
+<mat-card class="card">
+    <mat-card-title>{{data?.flowId}}</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="form"  (ngSubmit)="onSubmit()">
+      <mat-input-container>
+        <input style="width: 350px" color="accent" matInput placeholder="First Name" formControlName="firstName" >
+        
+      </mat-input-container>
+      <br>
+      <mat-input-container>
+        <input style="width: 350px" type="text" matInput placeholder="Last Name" formControlName="lastName"  >
+      </mat-input-container>
+      <br>
+      <mat-input-container>
+        <input style="width: 350px" type="email" matInput placeholder="Email" formControlName="Email"  >
+        <mat-error></mat-error>
+      </mat-input-container>
+      <br>
+      <mat-input-container>
+        <input style="width: 350px" type="password" matInput placeholder="CustomerId" formControlName="CustomerId"  >
+        <mat-error></mat-error>
+      </mat-input-container>
+      <br>
+      <mat-input-container>
+        <input style="width: 350px" type="password" matInput placeholder="Amount" formControlName="Amount"  >
+        <!-- <mat-error *ngIf="form.errors?.mismatchedFields">{{getErrorMessage()}}</mat-error>   -->
+      </mat-input-container>
+      
+      <br>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" matStepperNext>CONTINUE</button>
+      </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>

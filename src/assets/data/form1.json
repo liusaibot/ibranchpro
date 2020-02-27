@@ -1,0 +1,107 @@
+{
+    "flowId": 21,
+    "isFlowIdDerived": false,
+    "description": "Enter Payment Details",
+    "collectionInputSpecs": [
+        {
+            "key": 65,
+            "labelName": "Amount",
+            "inputType": "decimal",
+            "listItems": [],
+            "required": true,
+            "visible": true,
+            "inputValue": "5000",
+            "isListData": false,
+            "isTextData": true,
+            "isTextAreaData": false,
+            "isLabelData": false
+        },
+        {
+            "key": 66,
+            "labelName": "Beneficiary Code",
+            "inputType": "password",
+            "listItems": [],
+            "required": true,
+            "visible": true,
+            "inputValue": null,
+            "isListData": false,
+            "isTextData": true,
+            "isTextAreaData": false,
+            "isLabelData": false
+        },
+        {
+            "key": 67,
+            "labelName": "Beneficiary Name",
+            "inputType": "textarea",
+            "listItems": [],
+            "required": true,
+            "visible": true,
+            "inputValue": null,
+            "isListData": false,
+            "isTextData": true,
+            "isTextAreaData": false,
+            "isLabelData": false
+        },
+        {
+            "key": 68,
+            "labelName": "Passport No.",
+            "inputType": "text",
+            "listItems": [],
+            "required": true,
+            "visible": true,
+            "inputValue": null,
+            "isListData": false,
+            "isTextData": true,
+            "isTextAreaData": false,
+            "isLabelData": false
+        },
+        {
+            "key": 69,
+            "labelName": "Email",
+            "inputType": "text",
+            "listItems": [],
+            "required": true,
+            "visible": true,
+            "inputValue": null,
+            "isListData": false,
+            "isTextData": true,
+            "isTextAreaData": false,
+            "isLabelData": false
+        },
+        {
+            "key": 79,
+            "labelName": "Account",
+            "inputType": "text",
+            "listItems": [],
+            "required": true,
+            "visible": true,
+            "inputValue": "123458790",
+            "isListData": false,
+            "isTextData": false,
+            "isTextAreaData": false,
+            "isLabelData": false
+        },
+        {
+            "key": 80,
+            "labelName": "Do you have a web GUID?",
+            "inputType": "list",
+            "listItems": [
+                {
+                    "description": "Yes",
+                    "value": "12"
+                },
+                {
+                    "description": "No",
+                    "value": "7"
+                }
+            ],
+            "required": true,
+            "visible": true,
+            "inputValue": null,
+            "isListData": true,
+            "isTextData": false,
+            "isTextAreaData": false,
+            "isLabelData": false
+        }
+    ]
+}

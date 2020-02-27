@@ -1,0 +1,76 @@
+<div *ngIf="IsLoaded">
+  <div class="example-container mat-elevation-z8">
+    <div class="example-header">
+      <h2>{{category?.name}}</h2>
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search collections">
+      </mat-form-field>
+    </div>
+
+    <!-- <mat-table #table [dataSource]="category?.collections"> -->
+    <mat-table #table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="imageUrl">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <img style="vertical-align: middle;" aria-hidden src="assets/ibranch_collections/{{element?.imageUrl}}" height="100" />
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.name | lowercase}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="owner">
+        <mat-header-cell *matHeaderCellDef>Owner</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <b>{{element.owner}}</b>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" (click)="getInitialCollectionForm(element)" matStepperNext>
+            <mat-icon>shopping_cart</mat-icon> Pay</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  <!-- <section class="mat-typography">
+  <h3 matSubheader>{{category?.name}}</h3>
+  <div style="padding:60px">
+    <mat-accordion displayMode="default" [multi]="true"
+                   [hideToggle]="false">
+        <mat-expansion-panel [hideToggle]="false" *ngFor="let collection of category?.collections">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                  {{collection.name | lowercase}}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{collection.owner}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <img mat-card-sm-image src="" >
+            
+            <mat-form-field>
+              <input matInput placeholder="First name">
+            </mat-form-field>
+        
+            <mat-form-field>
+              <input matInput placeholder="Age">
+            </mat-form-field>
+            <mat-action-row>
+                <button mat-raised-button color="primary" (click)="onAction(event)">Get Details</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+  </div>
+</section> -->
+
+</div>

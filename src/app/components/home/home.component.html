@@ -1,0 +1,104 @@
+<br>
+<mat-card>
+  <section class="mat-typography">
+
+    <h2 matSubheader>Start the Process</h2>
+    <div *ngIf="filteredCollections">
+        <div class="search-container">
+            <form>
+                <mat-form-field class="search-form">
+                  <input matInput placeholder="search Institutions..." aria-label="search Institutions..." [formControl]="collectionsSearchForm" [matAutocomplete]="auto"/>
+                  <mat-icon matSuffix>search</mat-icon>
+                  <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let collection of filteredCollections | async" [value]="collection?.name" (onSelectionChange)="selectionChange(collection)" (input)="username = $event.target.value">
+                            <img style="vertical-align: middle;" aria-hidden src="assets/ibranch_collections/{{collection?.imageUrl}}" height="25" />
+                            <span>{{ collection?.name }}</span> | 
+                            <small>Category: {{collection?.category}} </small>
+                          </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </form>
+        </div>
+        </div>
+  </section>
+  <!-- <button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button> -->
+
+  <mat-horizontal-stepper [linear]="!isLinear" #stepper="matHorizontalStepper">
+
+    <mat-step [stepControl]="onSelectedCategory" (click)="emptyCategory()">
+      <ng-template matStepLabel>Select Category</ng-template>
+      <app-category (onSelectedCategory)="onSelectedCategory($event)"></app-category>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+      <ng-template matStepLabel>Select Institution</ng-template>
+      <div *ngIf="getCurrentAppState('isCategorySelected')">
+        <app-category-items></app-category-items>
+      </div>
+      <form [formGroup]="secondFormGroup">
+
+        <!-- <mat-form-field>
+          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+        </mat-form-field>-->
+        <div>
+          <br>
+          <button mat-raised-button color="primary" (click)="emptyCategory()" matStepperPrevious>
+            <mat-icon>fast_rewind</mat-icon>Back</button>
+          <!-- <button mat-button matStepperNext>Next</button> -->
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <ng-template matStepLabel>Enter your Details</ng-template>
+      <!-- <app-collection-flows></app-collection-flows> -->
+      <app-collections-form></app-collections-form>
+      <form [formGroup]="thirdFormGroup">
+
+        <!-- <mat-form-field>
+            <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          </mat-form-field>-->
+        <div>
+          <br>
+          <button mat-raised-button color="primary" matStepperPrevious>
+            <mat-icon>fast_rewind</mat-icon>Back</button>
+          <!-- <button mat-button matStepperNext>Next</button> -->
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="fourthFormGroup">
+      <ng-template matStepLabel>Payment Summary</ng-template>
+      <!-- <app-collection-flows></app-collection-flows> -->
+      <app-flutterwave></app-flutterwave>
+      <form [formGroup]="fourthFormGroup">
+
+        <!-- <mat-form-field>
+            <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          </mat-form-field>-->
+        <div>
+          <br>
+          <button mat-raised-button color="primary" matStepperPrevious>
+            <mat-icon>fast_rewind</mat-icon>Back</button>
+          <!-- <button mat-button matStepperNext>Next</button> -->
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</mat-card>
+<!-- <app-dynamic-form [questions]="questions"></app-dynamic-form> -->
+<!-- <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Select Payment Category</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form> -->

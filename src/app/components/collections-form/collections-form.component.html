@@ -1,0 +1,91 @@
+<!-- <pre>
+        {{formObjects | json}}
+</pre>  -->
+<mat-card class="card">
+    <mat-card-title>{{collectionForm?.description}}</mat-card-title>
+    <mat-card-content>
+        <form (ngSubmit)="onSubmit(paymentFormGroup, collectionForm.flowId)" [formGroup]="paymentFormGroup" class="long-form">
+            <div *ngFor="let prop of formObjects">
+
+                <div [ngSwitch]="prop.inputType">
+                    <div *ngSwitchCase="'text'">
+                        <mat-form-field class="long-width">
+                            <input matInput [formControlName]="prop.key" [id]="prop.key" [type]="prop.inputType" placeholder="{{prop?.labelName}}">
+                            <mat-error>
+                                <span *ngIf="paymentFormGroup.hasError('required',(prop.key).toString())">{{prop.labelName}} is required.</span>
+                            </mat-error>
+                            <!-- <mat-error><div *ngIf="paymentFormGroup.get((prop.key).toString()).invalid && paymentFormGroup.get((prop.key).toString()).dirty || paymentFormGroup.get((prop.key).toString()).touched">
+                                    <div *ngIf="paymentFormGroup.get((prop.key).toString()).errors?.required">{{prop.labelName}} is required.</div>
+                                        </div></mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div *ngSwitchCase="'password'">
+                        <mat-form-field class="long-width">
+                            <input matInput [formControlName]="prop.key" [id]="prop.key" type="password" [value]="prop.inputValue" placeholder="{{prop?.labelName}}">
+                            <mat-error>
+                                    <span *ngIf="paymentFormGroup.hasError('required',(prop.key).toString())">{{prop.labelName}} is required.</span>
+                                </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div *ngSwitchCase="'decimal'">
+                        <mat-form-field class="long-width">
+                            <input matInput [formControlName]="prop.key" [id]="prop.key" type="number" placeholder="{{prop?.labelName}}">
+                            <mat-error>
+                                <span *ngIf="paymentFormGroup.hasError('required',(prop.key).toString())">{{prop.labelName}} is required.</span>
+                                
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div *ngSwitchCase="'email'">
+                        <mat-form-field class="long-width">
+                            <input matInput [formControlName]="prop.key" [id]="prop.key" type="email" placeholder="{{prop?.labelName}}">
+                            <mat-error>
+                                    <span *ngIf="paymentFormGroup.hasError('required',(prop.key).toString())">{{prop.labelName}} is required.</span>
+                                    <div *ngIf="paymentFormGroup.get((prop.key).toString()).invalid && paymentFormGroup.get((prop.key).toString()).dirty || paymentFormGroup.get((prop.key).toString()).touched">
+                                    <div *ngIf="paymentFormGroup.hasError('email',(prop.key).toString())">Invalid email entered.</div>
+                                    </div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div *ngSwitchCase="'hidden'">
+                        <mat-form-field class="long-width">
+                            <input matInput [formControlName]="prop.key" [id]="prop.key" type="hidden">
+                        </mat-form-field>
+                    </div>
+                    <div *ngSwitchCase="'textarea'">
+                        <mat-form-field class="long-width">
+                            <textarea matInput [formControlName]="prop.key" [id]="prop.key" placeholder="{{prop?.labelName}}"></textarea>
+                            <mat-error><div *ngIf="paymentFormGroup.get((prop.key).toString()).invalid && paymentFormGroup.get((prop.key).toString()).dirty || paymentFormGroup.get((prop.key).toString()).touched">
+                                    <div *ngIf="paymentFormGroup.get((prop.key).toString()).errors?.required">{{prop.labelName}} is required.</div>
+                                        </div></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div *ngSwitchCase="'list'">
+                        <mat-form-field class="long-width">
+                            <mat-select matInput [formControlName]="prop.key" [id]="prop.key" placeholder="{{prop?.labelName}}">
+                                <mat-option *ngFor="let option of prop.listItems" [value]="option.value">{{option.description}}</mat-option>
+                            </mat-select>
+                            <mat-error></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div *ngSwitchCase="'label'">
+                            <mat-form-field class="long-width">
+                                <input matInput [formControlName]="prop.key" [id]="prop.key" [type]="prop.inputType" [value]="prop.inputValue" placeholder="{{prop?.labelName}}">
+                                <mat-error></mat-error>
+                            </mat-form-field>
+                        </div>
+                </div>
+                
+
+            </div>
+            <mat-card-actions>
+                <!-- <button mat-raised-button color="primary" >SUBMIT</button> -->
+                <button mat-raised-button color="primary" [disabled]="paymentFormGroup.invalid" matStepperNext>SUBMIT</button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<pre>
+    {{collectionForm | json}}
+</pre>

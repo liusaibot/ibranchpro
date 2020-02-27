@@ -1,0 +1,67 @@
+<section class="mat-typography">
+  <br>
+  <h4 matSubheader>Select a Category</h4>
+  <!-- <div *ngIf="filteredCollections">
+  <div class="search-container">
+      <form>
+          <mat-form-field class="search-form">
+            <input matInput placeholder="search Institutions..." aria-label="search Institutions..." [formControl]="collectionsSearchForm" [matAutocomplete]="auto"/>
+            <mat-icon matSuffix>search</mat-icon>
+            <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let collection of filteredCollections | async" [value]="collection?.name" (onSelectionChange)="selectionChange(collection)" (input)="username = $event.target.value">
+                      <img style="vertical-align: middle;" aria-hidden src="{{collection?.imageUrl}}" height="25" />
+                      <span>{{ collection?.name }}</span> | 
+                      <small>Category: {{collection?.category}} </small>
+                    </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <span *ngIf="collectionsSearchForm.dirty">
+            I am Dirty
+          </span>
+           <span *ngIf="collectionsSearchForm.">
+              I am Dirty
+            </span> -->
+          <!--<span *ngIf="showNext">
+            <button mat-raised-button color="primary" (click)="onClick">Next {{username}}</button>
+          </span>
+        </form>
+  </div>
+  </div>
+ -->
+
+  <hr>
+  <div class="row">
+    <div class="col-sm" *ngFor="let category of categories" style="padding:15px;">
+      <div class="card category-data" (click)="StoreCategory(category)" matStepperNext style="width: 13rem;">
+        <div class="card-body">
+          <h2 class="card-title">{{category?.name}}</h2>
+          <!-- <h6 class="card-subtitle mb-2 text-muted">{{category.description}}</h6> -->
+          <mat-icon style="color: blue;fill: blue;" class="cat-icon" (click)="StoreCategory(category)">{{category?.imageUrl}}</mat-icon>
+          <hr>
+          <button mat-button matStepperNext>Select</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- <pre>
+    <h2>Length: {{list.length}}</h2>
+    <pre>
+      {{list | json}}
+  </pre>
+</pre> -->
+
+<!--   
+
+  <mat-form-field>
+      <mat-select placeholder="Pokemon" [formControl]="pokemonControl">
+        <mat-option>-- None --</mat-option>
+        <mat-optgroup *ngFor="let category of categories" [label]="category.name">
+          <mat-option *ngFor="let collection of category.collections" [value]="collection?.name">
+            {{ collection?.name }}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field> -->

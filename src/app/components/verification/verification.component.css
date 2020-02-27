@@ -1,0 +1,72 @@
+.search-container{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.search-container > * {
+    width: 100%;
+}
+
+.search-form{
+    width: 100%;
+}
+
+.category-data{
+    /*font-size: 38px;*/
+    font-weight:100;
+    /*color:#555;*/
+    line-height:15px;
+    /* align-content: center; */
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 5px;
+    padding: 10px;
+    
+    /*background: #e9eaed;*/
+}
+
+.category-data:hover{
+    border: 1px none #26428b;
+    cursor: pointer;
+    border-radius: 25px;
+    background: #d5d8e1;
+
+}
+
+.cat-icon{
+    font-size: 50px !important;
+    margin: 0 auto;
+}
+
+.search-container{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.search-container > * {
+    width: 100%;
+}
+
+.search-form{
+    width: 100%;
+}
+
+.search-results {
+    height: 20rem;
+    overflow: scroll;
+}
+
+.collections-container {
+    width: 100%;
+    padding-right: 150px;
+    padding-left: 150px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card-body {
+    align-items: center;
+    
+}

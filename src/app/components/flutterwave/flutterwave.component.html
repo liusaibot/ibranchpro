@@ -1,0 +1,45 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar><img style="vertical-align: middle;" aria-hidden src="assets/ibranch_collections/{{collection?.imageUrl}}" height="25" /></div>
+    <mat-card-title><h2>Payment Summary</h2></mat-card-title>
+    <mat-card-subtitle>{{collection?.name}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <ul>
+    <li><strong>Product Name:</strong> {{collection?.name}}</li>
+    <li><strong>Amount:</strong><small>NGN</small> {{amount | currency : 'NGN'}} </li>
+    </ul>
+  </mat-card-content>
+  <mat-card-actions>
+    <button 
+  angular-rave
+  [PBFPubKey] = "publicKey"
+  [customer_email] = "email"
+  [amount] = "5000"
+  [currency] = "'NGN'"
+  [custom_title] = "'REVPAY'"
+  [txref] = "'rave-123456'"
+  [payment_method] = "both"
+  (callback)="paymentSuccess($event)"
+  (close)="paymentFailure()"
+  mat-raised-button color="primary"
+  >Pay with FlutterWave</button>
+  </mat-card-actions>
+</mat-card>
+
+<!-- <h2>Length: {{result.length}}</h2> -->
+  <!-- <pre>
+    {{collection | json}}
+</pre> -->
+
+  
+  <!-- <rave-pay-button
+    [PBFPubKey] = "'FLWPUBK-16297654758b26f660527387175d8df2-X'"
+  [key] = "'FLWPUBK-16297654758b26f660527387175d8df2-X'"
+  [email] = "email"
+  [amount] = "5000"
+  [reference] = "date"
+  (callback)="paymentSuccess($event)"
+  (close)="paymentFailure()"
+  mat-raised-button color="primary"
+  >Pay with FlutterWave</rave-pay-button> -->

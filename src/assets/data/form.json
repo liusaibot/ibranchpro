@@ -1,0 +1,98 @@
+{
+    "flowId": 22,
+    "isFlowIdDerived": false,
+    "description": "Confirm Payment Details",
+    "collectionInputSpecs": [
+        {
+            "key": 70,
+            "labelName": "PIN",
+            "inputType": "password",
+            "listItems": [],
+            "required": true,
+            "visible": true,
+            "inputValue": null,
+            "isListData": false,
+            "isTextData": true,
+            "isTextAreaData": false,
+            "isLabelData": false
+        },
+        {
+            "key": 71,
+            "labelName": "Amount",
+            "inputType": "decimal",
+            "listItems": [],
+            "required": false,
+            "visible": true,
+            "inputValue": "1000",
+            "isListData": false,
+            "isTextData": false,
+            "isTextAreaData": false,
+            "isLabelData": true
+        },
+        {
+            "key": 72,
+            "labelName": "Beneficiary Code",
+            "inputType": "label",
+            "listItems": [],
+            "required": false,
+            "visible": true,
+            "inputValue": "12345",
+            "isListData": false,
+            "isTextData": false,
+            "isTextAreaData": false,
+            "isLabelData": true
+        },
+        {
+            "key": 73,
+            "labelName": "Beneficiary Name",
+            "inputType": "label",
+            "listItems": [],
+            "required": false,
+            "visible": true,
+            "inputValue": "Tayo",
+            "isListData": false,
+            "isTextData": false,
+            "isTextAreaData": false,
+            "isLabelData": true
+        },
+        {
+            "key": 74,
+            "labelName": "Passport No.",
+            "inputType": "label",
+            "listItems": [],
+            "required": false,
+            "visible": true,
+            "inputValue": "12345465",
+            "isListData": false,
+            "isTextData": false,
+            "isTextAreaData": false,
+            "isLabelData": true
+        },
+        {
+            "key": 75,
+            "labelName": "Email",
+            "inputType": "email",
+            "listItems": [],
+            "required": true,
+            "visible": true,
+            "inputValue": "Tayo@abc.com",
+            "isListData": false,
+            "isTextData": false,
+            "isTextAreaData": false,
+            "isLabelData": true
+        },
+        {
+            "key": 80,
+            "labelName": "Account",
+            "inputType": "label",
+            "listItems": [],
+            "required": false,
+            "visible": true,
+            "inputValue": "00012345",
+            "isListData": false,
+            "isTextData": false,
+            "isTextAreaData": false,
+            "isLabelData": true
+        }
+    ]
+}

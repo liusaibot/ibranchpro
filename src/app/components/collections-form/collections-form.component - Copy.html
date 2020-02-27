@@ -1,0 +1,48 @@
+<!-- <div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form"> -->
+    <!-- <div *ngFor="let formInput of formInputs" class="form-row">
+      <app-collections-form-input [formInput]="formInput" [form]="form"></app-collections-form-input>
+    </div> -->
+    <!-- <div *ngFor="let property of objectProps" class="form-row">
+        <label [attr.for]="prop">{{prop.labelName}}</label>
+      </div>
+
+    <div class="form-row">
+      <button type="submit" [disabled]="!form.valid">Submit</button>
+    </div>
+  </form>
+</div> -->
+<!-- <h3>Form</h3>
+<p>This is the count: {{count}}</p> -->
+<!-- <pre>
+    {{objectProps | json}}
+</pre> -->
+<hr>
+<!-- <ul>
+  
+   <li *ngFor="let prop of objectProps">{{prop.key}}</li>
+</ul> -->
+<hr>
+{{dataObject | json}}
+<mat-card class="card">
+    <mat-card-title>{{dataObject?.description}}</mat-card-title>
+    <mat-card-content>
+
+
+        <form novalidate (ngSubmit)="onSubmit(form.value)" [formGroup]="form">
+            <div *ngFor="let prop of formObjects">
+                
+                <div [ngSwitch]="prop.type">
+                    <mat-input-container>
+                        <input matInput *ngSwitchCase="text" [formControlName]="prop.key" [id]="prop.key" [type]="prop.inputType" placeholder="{{prop.labelName}}">
+                    </mat-input-container>
+
+
+                </div>
+            </div>
+            <mat-card-actions>
+                <button mat-raised-button color="primary">SUBMIT</button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>
